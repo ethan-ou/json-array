@@ -138,6 +138,19 @@ describe('JSONArray', () => {
     JSONArray(originalArray);
     expect(originalArray).toEqual(duplicatedArray);
   });
+
+  it('skips object with incorrect keys', () => {
+    const originalArray = {
+      '1': {
+        type: 'item',
+      },
+      '3': {
+        type: 'item',
+      },
+    };
+
+    expect(JSONArray(originalArray)).toEqual(originalArray);
+  });
 });
 
 describe('testForArrayIndexKeys', () => {
